@@ -1,0 +1,55 @@
+.container__table{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.box_table{
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  max-width: 150px;
+}
+.table{
+  display: flex;
+}
+.itemX::before{content: "X"; margin-left: 13px;}
+.itemY::before{content: "Y";margin-left: 13px;}
+.three__item {
+  max-width: 40px;
+}
+.calculate{
+  margin-top: 25px;
+}
+.calculate button {
+  height: 90px;
+}
+input {
+  max-width: 30px;
+}
+button {
+  cursor: pointer;
+}
+.charts{
+  -moz-animation: dynamic 1s 1 forwards;
+  -ms-animation: dynamic 1s 1 forwards;
+  -webkit-animation: dynamic 1s 1 forwards;
+  animation: dynamic 1s 1 forwards;
+}
+
+@keyframes dynamic {
+  0%{
+    -moz-transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    -webkit-transform: translateY(100vh);
+    transform: translateY(100vh);
+  }
+  100%{
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
