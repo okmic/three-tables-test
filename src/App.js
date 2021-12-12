@@ -43,8 +43,6 @@ function App() {
     y: []
   })
 
-  const [dynamic, setDynamic] = useState(false)
-  const [calculate, setCalculate] = useState(true)
   const [zoom, setZoom] = useState(true)
   const [size, setSize] = useState({ w: 200, h: 100 })
 
@@ -64,7 +62,6 @@ function App() {
   }
 
   useEffect(() => {
-
     dispatch({
       type: 'createData'
     })
@@ -82,21 +79,17 @@ function App() {
         <Table dataX={state.tableOneX} dataY={state.tableOneY} dispatch={dispatch} table={true} />
         <Table dataX={state.tableTwoX} dataY={state.tableTwoY} dispatch={dispatch} table={false} />
         <div className={styles.box_table}>
-          {calculate 
-            ? <div className={styles.calculate} onClick={() => setCalculate(false)}>
-            <button onClick={() => setDynamic(true)}>Calculate</button>
+          <div className={styles.table}>
+            <div className={styles.three__item + ' ' + styles.itemX}>
+              {state.x.map((x, index) => <input key={index} value={x}  readOnly/>)}
             </div>
-            : <div className={styles.table}>
-              <div className={styles.three__item + ' ' + styles.itemX}>
-                {state.x.map((x, index) => <input key={index} value={dynamic ? x : ""} />)}
-              </div>
-              <div className={styles.three__item + ' ' + styles.itemY}>
-                {state.y.map((y, index) => <input key={index} value={dynamic ? y : ""} />)}
-              </div>
-            </div>}
+            <div className={styles.three__item + ' ' + styles.itemY}>
+              {state.y.map((y, index) => <input key={index} value={y} readOnly/>)}
+            </div>
+          </div>
         </div>
       </div>
-      {dynamic && <div className={styles.charts}>
+      <div className={styles.charts}>
         <ContainerCharts
           tableOne={state.tableOneX}
           tableTwo={state.tableTwoX}
@@ -105,7 +98,7 @@ function App() {
           zoom={zoom}
           zoomChanget={zoomChanget}
         />
-      </div>}
+      </div>
     </div>
   );
 }

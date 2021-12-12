@@ -26,10 +26,25 @@ const Table = ({ dataX, dataY, dispatch, table }) => {
     <div className={s.box_table}>
       <div className={s.table}>
         <div className={s.itemX}>
-          {dataX.map(t => <MapToTable id={t.id} body={t.x} dispatch={dispatch} table={table} onChangeInput={onChangeInput} status={t.status} />)}
+          {dataX.map(t => <MapToTable 
+          key={t.id} id={t.id} 
+          body={t.x} 
+          dispatch={dispatch} 
+          table={table} 
+          onChangeInput={onChangeInput} 
+          status={t.status} 
+          />)}
         </div>
         <div className={s.itemY}>
-          {dataY.map(t => <MapToTable id={t.id} body={t.y} dispatch={dispatch} thisY={dataY.length > 1 ? true : false} table={table} onChangeInput={onChangeInput} status={t.status} />)}
+          {dataY.map(t => <MapToTable 
+          key={t.id} id={t.id} 
+          body={t.y} 
+          dispatch={dispatch} 
+          thisY={dataY.length > 1 ? true : false} 
+          table={table} 
+          onChangeInput={onChangeInput} 
+          status={t.status} 
+          />)}
         </div>
       </div>
       <div className="table__item">
